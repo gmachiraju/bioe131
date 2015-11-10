@@ -1,0 +1,7 @@
+import numpy as np
+
+A = np.loadtxt('levdata', skiprows=1)
+array = np.array(A)
+
+
+

@@ -1,0 +1,93 @@
+airbears2-10-142-23-125:~ gmachiraju$ cd Desktop
+airbears2-10-142-23-125:Desktop gmachiraju$ lev.py levdata 1
+-bash: lev.py: command not found
+airbears2-10-142-23-125:Desktop gmachiraju$ python lev.py levdata 1
+Read 235886 words into 792777 nodes
+Search took 0.023936 s
+airbears2-10-142-23-125:Desktop gmachiraju$ python lev.py levdata 1
+Read 235886 words into 792777 nodes
+Search took 0.0222218 s
+airbears2-10-142-23-125:Desktop gmachiraju$ python lev.py levdata 2
+Read 235886 words into 792777 nodes
+('Pedata', 2)
+('devata', 2)
+('lemmata', 2)
+Search took 0.198867 s
+airbears2-10-142-23-125:Desktop gmachiraju$ la4_argparse.py -h 4
+-bash: la4_argparse.py: command not found
+airbears2-10-142-23-125:Desktop gmachiraju$ python lab4_argparse.py -h 4
+Traceback (most recent call last):
+  File "lab4_argparse.py", line 5, in <module>
+    myparser = argparse.OptionParser()
+AttributeError: 'module' object has no attribute 'OptionParser'
+airbears2-10-142-23-125:Desktop gmachiraju$ python lab4_argparse.py -h 4
+Usage: lab4_argparse.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -r, --runtot          
+  -m MYNAME, --myname=MYNAME
+                        allows you to tell the adder your name
+airbears2-10-142-23-125:Desktop gmachiraju$ python lab4_argparse.py 4 -m Larry -r
+Please enter a number: 5
+Current total: 5
+Please enter a number: 6
+Current total: 11
+Please enter a number: 7
+Current total: 18
+Please enter a number: 2
+Current total: 20
+Hello, Larry - The sum is 20
+Traceback (most recent call last):
+  File "lab4_argparse.py", line 27, in <module>
+    infile = open("myfile.txt")
+IOError: [Errno 2] No such file or directory: 'myfile.txt'
+airbears2-10-142-23-125:Desktop gmachiraju$ clear
+
+airbears2-10-142-23-125:Desktop gmachiraju$ 
+airbears2-10-142-23-125:Desktop gmachiraju$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+airbears2-10-142-23-125:Desktop gmachiraju$ python lab4_argparse.py 4 -m Larry -r
+Please enter a number: 7
+Current total: 7
+Please enter a number: 8
+Current total: 15
+Please enter a number: 9
+Current total: 24
+Please enter a number: 0
+Current total: 24
+Hello, Larry - The sum is 24
+Traceback (most recent call last):
+  File "lab4_argparse.py", line 27, in <module>
+    infile = open("myfile.txt")
+IOError: [Errno 2] No such file or directory: 'myfile.txt'
+airbears2-10-142-23-125:Desktop gmachiraju$ 
+
+
+
+
+
+
+
+
