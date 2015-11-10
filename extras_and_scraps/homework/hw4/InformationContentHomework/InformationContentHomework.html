@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0059)http://biowiki.org/view/Teaching/InformationContentHomework -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Information Content Homework</title>
+</head>
+<body>
+<h1>Information content programming exercise. </h1>
+<p>
+In addition to building on your programming skills, this exercise tests your understanding of the entropy concepts that have been covered in class.
+The goal of the exercise is to write a Python program that does the following (grading shown in <font color="#ff0000"> <em>red italics</em> </font>):
+</p><p> </p><ol>
+<li> Read in a multiple sequence alignment in <a class="twikiLink" href="https://en.wikipedia.org/wiki/Stockholm_format">Stockholm format</a> (you may assume the file is correctly formatted); <font color="#ff0000"> <em>(10)</em> </font> <br> Relevant points of the Stockholm format for this homework: <ol>
+<li> Lines starting with #'s are <strong>comments</strong>, and <strong>should be ignored</strong>
+</li> <li> The amount of whitespace between fields <strong>is arbitrary</strong>
+</li> <li> On lines with information, you have <strong>optional whitespace</strong>, <strong>name</strong>, <strong>whitespace</strong>, <strong>sequence</strong>
+</li> <li> Gaps may be specified as a period ( <code><b>.</b></code> ) or a dash ( <code><b>-</b></code> )
+</li> <li> <strong>You can assume that the entire sequence is presented on a single line</strong>, instead of split over multiple lines (though they can technically legally be split in Stockholm format).
+</li> <li> The relevant part of the file ends with <code><b>//</b></code>
+</li></ol> 
+</li> <li> For each column <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_c465118a8d86d5f25bba37cc1dcb38a0.png"></span> in the alignment: <ol>
+<li> Calculate the probability distribution, <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_7913493b91c083978c56c26e6cc2bcce.png"></span>, that a randomly selected row contains character <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_5833f26cfa216d8f48bae9c56d2e6f43.png"></span> in column <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_c465118a8d86d5f25bba37cc1dcb38a0.png"></span>; <font color="#ff0000"> <em>(10)</em> </font> <ul>
+<li> (Note that "character" can include gap characters as well as the four RNA nucleotides)
+</li></ul> 
+</li> <li> Calculate the entropy, <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_08e459e974771eee4362d466ae2412ce.png"></span>, of this probability distribution. <font color="#ff0000"> <em>(10)</em> </font>
+</li></ol> 
+</li> <li> For each ordered pair of column indices <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_40e2dd2508c8919b726e645a7374726d.png"></span> where <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_cb6f04679c2e6beb3c3d91e77740d843.png"></span>: <ol>
+<li> Calculate the joint probability distribution, <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_d484cda9305d00f3d4decda7d772d301.png"></span>, that a randomly selected row contains character <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_5833f26cfa216d8f48bae9c56d2e6f43.png"></span> in column <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_c465118a8d86d5f25bba37cc1dcb38a0.png"></span> <strong>and</strong> character <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_809fa194549a8b33f996ffcdea80ab3c.png"></span> in column <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_42c350debb8f719340f247d5621b8806.png"></span> ; <font color="#ff0000"> <em>(10)</em> </font>
+</li> <li> Calculate the mutual information <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_6d0995d81cac2482e68d82bc0b125bdf.png"></span>. <font color="#ff0000"> <em>(10)</em> </font>
+</li></ol> 
+</li></ol> 
+<p>
+<strong>Do not print any of the information you just calculated in your final submission</strong> (though you'll definitely want to while debugging!).  Instead, add the following functionality to your program:
+</p><p> </p><ol>
+<li> Store the generated entropy and mutual information values for each column or pair of columns. (note: since <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_cb6f04679c2e6beb3c3d91e77740d843.png"></span> you should not return <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_ad2b4581fdbdb8de4b3c0203a45b195f.png"></span> columns!)
+</li> <li> Use your results to output (you may assume there are at least 11 columns in the alignment): <ol>
+<li> the "bottom 10" columns with the lowest entropy; <font color="#ff0000"> <em>(10)</em> </font>
+</li> <li> the "top 20" column-pairs with the highest mutual information; <font color="#ff0000"> <em>(5)</em> </font>
+</li> <li> the "top 50" column-pairs with the highest mutual information. <font color="#ff0000"> <em>(5)</em> </font>
+</li></ol> 
+</li> <li> Execute the program on this alignment of RNA gene sequences:  <ul>
+<li> <a href="http://biowiki.org/twiki/pub/Teaching/InformationContentOfDNA/tRNA.stock" target="_top">tRNA.stock</a>
+</li></ul> 
+</li> <li> In a separate word processed document, to be turned in on the Wiki, comment on your results: <ol>
+<li> What does a high mutual information imply about the nucleotides at positions <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_c465118a8d86d5f25bba37cc1dcb38a0.png"></span> and <span class="mmpContainer" align="center"><img class="mmpImage" src="./InformationContentHomework_files/_MathModePlugin_42c350debb8f719340f247d5621b8806.png"></span>? <font color="#ff0000"> <em>(10)</em> </font>
+</li> <li> With the aid of a sketch (may be hand drawn or computer generated), summarize what the "top 20" and "top 50" results tell you about the secondary structure of transfer RNA. <font color="#ff0000"> <em>(10)</em> </font>
+</li></ol> 
+</li></ol> 
+<p>
+Further notes regarding grading: </p><ul>
+<li> As always, you will be graded for good programming style (see <a class="twikiLink" href="http://biowiki.org/twiki/bin/view/Teaching/StyleGuidelines">StyleGuidelines</a>). <font color="#ff0000"> <em>(10)</em> </font>
+</li> <li> To summarize, you should turn in: <ol>
+<li> Your code.
+</li> <li> Your analysis of the results.
+</li></ol> 
+</li></ul> 
+
+</body></html>

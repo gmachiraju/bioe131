@@ -1,0 +1,112 @@
+############# WARNING...THIS IS UNDER CONSTRUCTION...###################################
+# def calcJointProb(myList): 
+# 	for [key, value] in myList: 
+# 		jointDistribution = []
+# 		for i in range(len(value)): 
+# 			for j in range(len(value)):
+# 				disti = calcProb(myList, i)
+# 				distj = caclProb(myList, j)
+# 				for p in disti: 
+# 					for q in distj: 
+# 						jointDist += p*q
+
+# def jointDist(myList): 
+# 	for entry in myList: 
+# 		for i in entry[1]:
+# 			toAdd = []
+# 			for j in entry[1]:
+# 				dist = calcProb
+
+##########################################################################
+
+# cd = makeCountDict(myList)
+# print cd
+
+def makeCountDict(myList):
+	countDict = {}
+	numCols = len(myList[1][1])
+	for line in myList:
+		for i in range(0, numCols-1):
+			for j in range(i+1, numCols-1):
+				char1 = line[1][i]
+				char2 = line[1][j]
+				try:
+					countDict[char1, char2] = countDict[char1, char2] + 1
+				except KeyError:
+					countDict[char1, char2] = 1
+	return countDict
+
+
+def makeJEntropyDict(myList):
+	myJEntropyDict = {}
+	numCols = len(myList[1][1])
+	numRows = len(myList)
+	
+	myJEntropyDict = makeCountDict(myList)
+
+	for key in myJEntropyDict.keys():
+		val = myJEntropyDict[key]
+		myJEntropyDict[key] = val/numRows
+
+	for key in myJEntropyDict.keys():
+		prob = myJEntropyDict[key]
+		ent = calcEntropy([prob])
+		myJEntropyDict[key] = ent
+
+	return myJEntropyDict
+
+
+# prob0 = calcProb(myList,0)
+# print prob0
+# print calcEntropy(prob0)
+
+#prob0 = calcProb(myList,0)
+#print prob0
+#print(calcEntropy(prob0))
+
+# seqLength = len(myDict.values()[0])
+# for i in range(0,seqLength):
+# 	print(calcProb(myDict,i))
+
+
+def calcJointProb(myList, i, j): 
+	jointDist = []
+	distI = calcProb(myList, i)
+	distJ = calcProb(myList, j)
+	for p in distI: 
+		val = 0
+		for q in distJ: 
+			val += p*q
+			print val
+		jointDist.append(val)
+	return jointDist
+
+# myMIDict = makeMIDict(myList)
+# topFifty(myMIDict)
+
+
+#We call this H_ij
+def calcJointEntropy(myList):
+	ent = 0
+	for row in myList:
+		if val > 0:
+			ent += val*math.log(val,2)
+	return -ent	
+
+
+
+
+
+def calcJointEntropy(distribution):
+	ent = 0
+	for val in distribution:
+		if val > 0:
+			ent += val*math.log(val,2)
+	return -ent		
+
+
+
+
+	prob01 = calcJointProb(myList,0,1)
+print prob01
+print calcJointEntropy(prob01)
